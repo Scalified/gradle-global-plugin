@@ -45,8 +45,8 @@ apply(plugin = "com.scalified.plugins.gradle.global")
 
 After applying the plugin, the following takes place:
 
-1. A new configuration named **global** added. By default it has **canBeResolved** and **canBeConsumed** flags set to **false**
-2. All configurations, which have **canBeResolved** flag set to **true** are set to extend from **global** configuration
+1. A new configuration named **global** added. It is configured with **canBeResolved** and **canBeConsumed** flags set to **false**
+2. All configurations, which have **canBeResolved** flag set to **true** are configured to extend from **global** configuration
 
 ## License
 
