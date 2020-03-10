@@ -4,7 +4,9 @@
 
 ## Description
 
-[Gradle Global Plugin](https://plugins.gradle.org/plugin/com.scalified.plugins.gradle.global) provides the global configuration
+[Gradle Global Plugin](https://plugins.gradle.org/plugin/com.scalified.plugins.gradle.global) provides the global configuration,
+which handles the problem of importing BOM / platform dependencies for all configurations. 
+See [**issue 7576**](https://github.com/gradle/gradle/issues/7576)
 
 ## Requirements
 
@@ -43,10 +45,21 @@ apply(plugin = "com.scalified.plugins.gradle.global")
 
 ## Usage
 
-After applying the plugin, the following takes place:
+Applying this plugin is literally the same as adding the following configuration:
 
-1. A new configuration named **global** added. It is configured with **canBeResolved** and **canBeConsumed** flags set to **false**
-2. All configurations, which have **canBeResolved** flag set to **true** are configured to extend from **global** configuration
+```kotlin
+configurations {
+    global {
+       canBeResolved = false
+       canBeConsumed = false
+    }
+}
+configurations.all { configuration ->
+    if (configuration.canBeResolved) {
+       configuration.extendsFrom(configurations.globalPlatforms)
+    }
+}
+```
 
 ## License
 

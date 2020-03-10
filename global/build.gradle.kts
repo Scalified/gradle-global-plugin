@@ -34,12 +34,16 @@ pluginBundle {
 	vcsUrl = "https://github.com/Scalified/gradle-global-plugin"
 	description = "Gradle Global Plugin"
 	tags = setOf("global", "configuration", "dependency", "platform")
+}
 
+gradlePlugin {
 	plugins {
-		create("globalPlugin") {
+		create("Global Plugin") {
 			id = "com.scalified.plugins.gradle.global"
 			displayName = "Gradle Global Plugin"
-			version = "${project.version}"
+			description = "Gradle Global Plugin"
+			implementationClass = "com.scalified.plugins.gradle.global.GlobalPlugin"
+			version = project.version
 		}
 	}
 }
