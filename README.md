@@ -1,6 +1,7 @@
 # Gradle Global Plugin
 
 [![Build Status](https://travis-ci.org/Scalified/gradle-global-plugin.svg)](https://travis-ci.org/Scalified/gradle-global-plugin)
+[![Maven Central](https://img.shields.io/maven-metadata/v?label=Plugin&metadataUrl=https%3A%2F%2Fplugins.gradle.org%2Fm2%2Fcom%2Fscalified%2Fplugins%2Fgradle%2Fglobal%2Fcom.scalified.plugins.gradle.global.gradle.plugin%2Fmaven-metadata.xml)](https://plugins.gradle.org/plugin/com.scalified.plugins.gradle.global)
 
 ## Description
 
