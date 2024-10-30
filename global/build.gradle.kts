@@ -23,27 +23,23 @@
  */
 
 plugins {
-	kotlin("jvm") version "1.3.70"
+	`kotlin-dsl`
 
-	id("com.gradle.plugin-publish") version "0.10.1"
-	`java-gradle-plugin`
-}
-
-pluginBundle {
-	website = "https://scalified.com/"
-	vcsUrl = "https://github.com/Scalified/gradle-global-plugin"
-	description = "Gradle Global Plugin"
-	tags = setOf("global", "configuration", "dependency", "platform")
+	alias(libs.plugins.gradle.publish)
 }
 
 gradlePlugin {
 	plugins {
+		@Suppress("UnstableApiUsage")
 		create("Global Plugin") {
 			id = "com.scalified.plugins.gradle.global"
-			displayName = "Gradle Global Plugin"
-			description = "Gradle Global Plugin"
+			displayName = "${project.properties["PROJECT_NAME"]}"
+			description = "${project.properties["PROJECT_DESCRIPTION"]}"
 			implementationClass = "com.scalified.plugins.gradle.global.GlobalPlugin"
 			version = project.version
+			website.set("https://scalified.com/")
+			vcsUrl.set("${project.properties["PROJECT_URL"]}")
+			tags.set(listOf("platform", "global", "configuration", "dependency"))
 		}
 	}
 }

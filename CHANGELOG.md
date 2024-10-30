@@ -1,3 +1,7 @@
+# 1.0.0
+
+* []
+
 # 0.0.2
 
 * [**#1** Gradle Script Update](https://github.com/Scalified/gradle-global-plugin/issues/1)

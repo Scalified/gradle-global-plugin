@@ -1,6 +1,6 @@
 # Gradle Global Plugin
 
-[![Build Status](https://travis-ci.org/Scalified/gradle-global-plugin.svg)](https://travis-ci.org/Scalified/gradle-global-plugin)
+[![Build Status](https://github.com/Scalified/gradle-global-plugin/actions/workflows/build.yml/badge.svg)](https://github.com/Scalified/gradle-global-plugin/actions)
 [![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v?label=Plugin&metadataUrl=https%3A%2F%2Fplugins.gradle.org%2Fm2%2Fcom%2Fscalified%2Fplugins%2Fgradle%2Fglobal%2Fcom.scalified.plugins.gradle.global.gradle.plugin%2Fmaven-metadata.xml)](https://plugins.gradle.org/plugin/com.scalified.plugins.gradle.global)
 
 ## Description
@@ -8,43 +8,6 @@
 [Gradle Global Plugin](https://plugins.gradle.org/plugin/com.scalified.plugins.gradle.global) provides the global configuration,
 which handles the problem of importing BOM / platform dependencies for all configurations. 
 See [**issue 7576**](https://github.com/gradle/gradle/issues/7576)
-
-## Requirements
-
-* [Gradle 6+](https://gradle.org/)
-
-## Changelog
-
-[Changelog](CHANGELOG.md)
-
-## Applying
-
-Using the plugins DSL (Kotlin):
-
-```kotlin
-plugins {
-  id("com.scalified.plugins.gradle.global") version "$version"
-}
-```
-
-Using legacy plugin application (Kotlin):
-
-```kotlin
-buildscript {
-  repositories {
-    maven {
-      url = uri("https://plugins.gradle.org/m2/")
-    }
-  }
-  dependencies {
-    classpath("gradle.plugin.com.scalified.plugins.gradle:global:$version")
-  }
-}
-
-apply(plugin = "com.scalified.plugins.gradle.global")
-```
-
-## Usage
 
 Applying this plugin is literally the same as adding the following configuration:
 
@@ -59,6 +22,18 @@ configurations.all { configuration ->
     if (configuration.canBeResolved) {
        configuration.extendsFrom(configurations.globalPlatforms)
     }
+}
+```
+
+## Requirements
+
+* [Gradle 8+](https://gradle.org/)
+
+## Usage
+
+```kotlin
+plugins {
+  id("com.scalified.plugins.gradle.global") version "$version"
 }
 ```
 

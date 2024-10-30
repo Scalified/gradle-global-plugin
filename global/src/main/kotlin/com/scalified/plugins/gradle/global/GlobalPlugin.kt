@@ -37,19 +37,20 @@ internal const val CONFIGURATION_NAME = "global"
 
 open class GlobalPlugin : Plugin<Project> {
 
-	private val logger = LoggerFactory.getLogger(GlobalPlugin::class.java)
+    private val logger = LoggerFactory.getLogger(GlobalPlugin::class.java)
 
-	override fun apply(project: Project) {
-		val globalConfiguration = project.configurations.create(CONFIGURATION_NAME) { configuration ->
-			configuration.isCanBeResolved = false
-			configuration.isCanBeConsumed = false
-		}
-		logger.debug("Created $CONFIGURATION_NAME configuration")
+    override fun apply(project: Project) {
+        val globalConfiguration = project.configurations.create(CONFIGURATION_NAME) {
+            isCanBeResolved = false
+            isCanBeConsumed = false
+        }
+        globalConfiguration.name
+        logger.debug("Created $CONFIGURATION_NAME configuration")
 
-		project.configurations.all { configuration ->
-			if (configuration.isCanBeResolved) configuration.extendsFrom(globalConfiguration)
-			logger.debug("Configured all configurations to extend from $CONFIGURATION_NAME")
-		}
-	}
+        project.configurations.all {
+            if (isCanBeResolved) extendsFrom(globalConfiguration)
+            logger.debug("Configured all configurations to extend from $CONFIGURATION_NAME")
+        }
+    }
 
 }

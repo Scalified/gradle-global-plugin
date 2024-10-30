@@ -22,10 +22,10 @@
  * SOFTWARE.
  */
 
-allprojects {
+subprojects {
 
-	group = "com.scalified.plugins.gradle"
-	version = "0.0.2"
+	group = "com.scalified"
+	version = "1.0.0"
 
 	repositories {
 		mavenCentral()
