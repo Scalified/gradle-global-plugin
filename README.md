@@ -32,8 +32,18 @@ configurations.all { configuration ->
 ## Usage
 
 ```kotlin
+import com.scalified.plugins.gradle.global.GlobalPlugin
+
 plugins {
-  id("com.scalified.plugins.gradle.global") version "$version"
+    id("com.scalified.plugins.gradle.global") version "$version"
+}
+
+subprojects {
+    apply<GlobalPlugin>()
+    
+    dependencies {
+        global(platform("<platform coordinates>"))
+    }
 }
 ```
 
