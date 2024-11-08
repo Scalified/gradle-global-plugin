@@ -18,7 +18,7 @@ jobs:
       - id: set-vars
         name: Set variables
         run: |
-          version=$(grep "version" build.gradle.kts | awk '{ print $3 }' | tr -d \''"\\')
+          version=$(grep "project = " gradle/libs.versions.toml | awk '{ print $3 }' | tr -d \''"\\')
           missing=$(if [ "$(git ls-remote origin refs/tags/$version)" ]; then echo false; else echo true; fi)
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "missing=$missing" >> "$GITHUB_OUTPUT"

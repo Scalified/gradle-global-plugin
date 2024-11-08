@@ -1,4 +1,6 @@
 [versions]
+project = "1.0.0"
+
 gradle-publish = "1.3.0"
 
 [plugins]
