@@ -1,6 +1,6 @@
-# 1.0.0
+# 1.1.0
 
-* []
+* [**#3 Plugin Refactoring**](https://github.com/Scalified/gradle-global-plugin/issues/3)
 
 # 0.0.2
 

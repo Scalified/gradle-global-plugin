@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Scalified
+ * Copyright (c) 2024 Scalified
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,29 +25,4 @@
 
 package com.scalified.plugins.gradle.global
 
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-import org.slf4j.LoggerFactory
-
-/**
- * @author shell
- * @since 2020-03-05
- */
-open class GlobalPlugin : Plugin<Project> {
-
-    private val logger = LoggerFactory.getLogger(GlobalPlugin::class.java)
-
-    override fun apply(project: Project) {
-        project.configurations.create(GLOBAL) globalConfiguration@{
-            isCanBeResolved = false
-            isCanBeConsumed = false
-            logger.info("Created '$GLOBAL' configuration")
-
-            project.configurations.all {
-                if (isCanBeResolved) extendsFrom(this@globalConfiguration)
-                logger.debug("Configured '$GLOBAL' configuration")
-            }
-        }
-    }
-
-}
+internal const val GLOBAL = "global"
